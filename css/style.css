@@ -823,6 +823,7 @@ section {
 .mythology-section {
   text-align: center;
   max-width: none;
+  padding: 0;
 }
 .mythology-section .section-description {
   padding: 1rem;
@@ -843,21 +844,12 @@ section {
   background-image: url("../assets/cultures/asian.jpg");
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.section-description {
-  max-width: 700px;
-  font-size: 1.2rem;
-}
-
 .mythology-container {
   height: 80dvh;
   width: 100%;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  overflow-x: hidden;
   scrollbar-width: none;
 }
 
