@@ -1,0 +1,465 @@
+@import "reset";
+@import "animations";
+@import "navbar";
+@import "footer";
+
+/* =====================
+   HEADER
+===================== */
+.header {
+	height: 100vh;
+	background: url("../assets/header.jpg");
+	background-position: left top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	&::after {
+		position: absolute;
+		content: "";
+		inset: 0;
+		background: linear-gradient(rgba(0, 0, 0, 0.3) 20%, rgba(0, 0, 0, 0.7) 90%);
+		pointer-events: none;
+	}
+
+	@media screen and (min-width: 700px) {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
+
+.header-content {
+	z-index: 2;
+	padding: 2rem;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+
+	@media screen and (min-width: 700px) {
+		text-align: left;
+		width: 45%;
+	}
+}
+
+.header-title {
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	font-family: "Merriweather";
+}
+
+.header-subtitle {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	letter-spacing: 1px;
+}
+
+.cta-section {
+	margin-top: 1.5rem;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+
+	@media screen and (min-width: 700px) {
+		justify-content: flex-start;
+	}
+
+	.btn {
+		padding: 0.8rem 1.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1rem;
+	}
+}
+
+/* =====================
+   INFO SECTION
+===================== */
+.info-section {
+	margin-top: 2rem;
+}
+
+.info-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+
+	@media screen and (min-width: 700px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.info-card {
+	@include clay-effect();
+	padding: 2rem;
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	width: 100%;
+
+	&:hover {
+		box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3),
+			inset 6px 6px 14px rgba(0, 0, 0, 0.2),
+			inset -4px -4px 10px rgba(255, 255, 255, 0.05);
+	}
+}
+
+.info-icon {
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 100dvh;
+	padding: 0.5rem;
+	box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.25),
+		inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	.info-card:hover & {
+		transform: scale(0.9);
+		box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.3),
+			inset -6px -6px 12px rgba(255, 255, 255, 0.15),
+			0 0 12px rgba($primary-color, 0.6);
+	}
+}
+
+.info-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	text-align: left;
+}
+
+.info-title {
+	font-family: "Merriweather", serif;
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+.info-text {
+	font-size: 1.15rem;
+	line-height: 1.7;
+}
+
+/* =====================
+   BEHAVIOR SECTION
+===================== */
+.behavior-section {
+	background-color: $dark-color;
+	padding-block: 3rem;
+	max-width: none;
+	width: 100%;
+}
+
+.accordion {
+	max-width: 1200px;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+	align-items: flex-start;
+	justify-content: center;
+
+	@media screen and (min-width: 700px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.accordion-item {
+	@include clay-effect();
+	background-color: $primary-color;
+	overflow: hidden;
+	max-width: 350px;
+
+	.accordion-header {
+		width: 100%;
+		padding: 1.2rem 1rem;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 1.2rem;
+		font-weight: 600;
+		text-align: left;
+		background: none;
+		color: $secondary-color;
+
+		.accordion-icon {
+			max-width: 40px;
+		}
+
+		.accordion-plus-icon {
+			font-size: 1.5rem;
+		}
+
+		&.active .accordion-plus-icon {
+			transform: rotate(45deg);
+		}
+	}
+
+	.accordion-content {
+		max-height: 0px;
+		overflow: hidden;
+		padding: 0 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+
+		img {
+			border-radius: $border-radius-general;
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: 1.5;
+			color: $secondary-color;
+			margin-bottom: 1rem;
+		}
+	}
+
+	&.open {
+		.accordion-content {
+			padding: 1rem;
+			max-height: 500px;
+		}
+	}
+}
+
+/* =====================
+   MYTHOLOGY SECTION
+===================== */
+.mythology-section {
+	text-align: center;
+	max-width: none;
+	padding: 0;
+
+	.section-description {
+		padding: 1rem;
+	}
+	// Background Images
+	.norse {
+		background-image: url("../assets/cultures/norse.jpg");
+	}
+	.native {
+		background-image: url("../assets/cultures/native-american.jpg");
+	}
+	.celtic {
+		background-image: url("../assets/cultures/celtic.jpg");
+	}
+	.greek-roman {
+		background-image: url("../assets/cultures/greek-roman.jpg");
+	}
+	.asian {
+		background-image: url("../assets/cultures/asian.jpg");
+	}
+}
+
+.section-title {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+.section-description {
+	max-width: 700px;
+	font-size: 1.2rem;
+}
+
+.mythology-container {
+	height: 100dvh;
+	width: 100%;
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+.mythology-feature {
+	scroll-snap-align: start;
+	position: relative;
+	height: 100dvh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $secondary-color;
+	background-size: cover;
+	background-position: center;
+	overflow-y: hidden;
+	background-position: top;
+
+	.overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.content {
+		position: relative;
+		max-width: 700px;
+		padding: 2rem;
+		text-align: center;
+
+		h2 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		p {
+			font-size: 1.1rem;
+			line-height: 1.5;
+		}
+	}
+}
+
+/* =====================
+   GALLERY SECTION
+===================== */
+.gallery-section {
+	.section-title,
+	.section-subtitle {
+		color: $primary-color;
+	}
+}
+
+.gallery-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: 150px;
+	gap: 0.75rem;
+	width: 100%;
+
+	.btn {
+		max-width: none;
+	}
+
+	&:hover {
+		.gallery-item:not(:hover) {
+			filter: grayscale(1);
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: 200px;
+		gap: 1.25rem;
+	}
+}
+
+.gallery-item {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: $border-radius-rounded;
+	cursor: pointer;
+	position: relative;
+	@include clay-effect();
+
+	&:hover {
+		transform: scale(1.03);
+		filter: brightness(1.1) saturate(1.1);
+	}
+
+	&:nth-child(1) {
+		grid-row: span 2;
+	}
+	&:nth-child(4) {
+		grid-column: span 2;
+	}
+	&:nth-child(6) {
+		grid-row: span 2;
+	}
+
+	@media screen and (min-width: 700px) {
+		&:nth-child(1) {
+			grid-row: auto;
+		}
+		&:nth-child(2) {
+			grid-row: span 2;
+		}
+		&:nth-child(3) {
+			grid-column: span 2;
+		}
+		&:nth-child(4) {
+			grid-column: auto;
+		}
+		&:nth-child(6) {
+			display: none;
+		}
+	}
+}
+
+/* =====================
+   FACTS SECTION
+===================== */
+.facts-section {
+	width: 100%;
+}
+
+.facts-container {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.fact-item {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 1rem;
+	overflow: hidden;
+
+	@media screen and (min-width: 700px) {
+		flex-direction: row;
+		gap: 30px;
+
+		* {
+			max-width: 400px;
+		}
+
+		&:nth-child(2) {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.fact-image {
+	width: 100%;
+	aspect-ratio: 5/3;
+	object-fit: cover;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	@include clay-effect();
+
+	@media screen and (min-width: 700px) {
+		width: 300px;
+	}
+}
+
+.fact-text {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+	color: $primary-color;
+}
+
+.fact-title {
+	font-size: 1.4rem;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+.fact-description {
+	font-size: 1rem;
+	line-height: 1.5;
+	color: $secondary-color;
+}
