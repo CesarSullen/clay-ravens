@@ -236,7 +236,6 @@
 .mythology-section {
 	text-align: center;
 	max-width: none;
-	padding: 0;
 
 	.section-description {
 		padding: 1rem;
@@ -270,7 +269,7 @@
 }
 
 .mythology-container {
-	height: 100dvh;
+	height: 80dvh;
 	width: 100%;
 	scroll-snap-type: y mandatory;
 	overflow-y: scroll;
@@ -280,7 +279,7 @@
 .mythology-feature {
 	scroll-snap-align: start;
 	position: relative;
-	height: 100dvh;
+	height: 80dvh;
 	width: 100%;
 	display: flex;
 	align-items: center;
