@@ -590,7 +590,7 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 .header::after {
   position: absolute;
@@ -611,8 +611,8 @@ section {
   z-index: 2;
   padding: 2rem;
   width: 100%;
-  color: #fff;
-  text-align: center;
+  color: #e4f1f5;
+  text-align: left;
 }
 @media screen and (min-width: 700px) {
   .header-content {
@@ -622,7 +622,7 @@ section {
 }
 
 .header-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -655,78 +655,84 @@ section {
 }
 
 /* =====================
-   INFO SECTION
+   INSIGHTS SECTION
 ===================== */
-.info-section {
+.insights-section {
   margin-top: 2rem;
 }
 
-.info-container {
+.insights-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
 }
 @media screen and (min-width: 700px) {
-  .info-container {
-    grid-template-columns: repeat(2, 1fr);
+  .insights-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }
 
-.info-card {
+.insight-card {
   background: #222222;
   border-radius: 15px;
   border: 2px solid rgba(0, 0, 0, 0.05);
   color: #e4f1f5;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), inset 4px 4px 12px rgba(255, 255, 255, 0.04), inset -4px -4px 8px rgba(0, 0, 0, 0.15);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  padding: 2rem;
+  aspect-ratio: 1;
+  border-radius: 15px;
+  padding: 1.5rem;
   display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: default;
 }
-.info-card:hover {
+.insight-card:hover {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 4px 4px 12px rgba(255, 255, 255, 0.04), inset -4px -4px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px) scale(1.03);
 }
-.info-card:active {
+.insight-card:active {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 6px 6px 14px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.05);
   transform: scale(0.95);
 }
-.info-card:hover {
+.insight-card:hover {
+  transform: translateY(-5px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 6px 6px 14px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.05);
 }
 
-.info-icon {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 100dvh;
-  padding: 0.5rem;
-  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.25), inset -4px -4px 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.info-card:hover .info-icon {
-  transform: scale(0.9);
-  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.3), inset -6px -6px 12px rgba(255, 255, 255, 0.15), 0 0 12px rgba(45, 44, 45, 0.6);
-}
-
-.info-content {
+.insight-header {
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  text-align: left;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  align-items: center;
 }
 
-.info-title {
-  font-family: "Merriweather", serif;
-  font-size: 1.6rem;
-  font-weight: 700;
+.insight-icon {
+  width: 100%;
+  max-width: 30px;
+  border-radius: 100dvh;
+  padding: 0.3rem;
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.25), inset -3px -3px 6px rgba(255, 255, 255, 0.1);
+}
+@media screen and (min-width: 700px) {
+  .insight-icon {
+    max-width: 50px;
+  }
 }
 
-.info-text {
-  font-size: 1.15rem;
-  line-height: 1.7;
+.insight-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.insight-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  align-self: flex-end;
+  font-family: "Merriweather";
+  letter-spacing: 1.5px;
 }
 
 /* =====================
@@ -845,7 +851,7 @@ section {
 }
 
 .mythology-container {
-  height: 80dvh;
+  height: 80vh;
   width: 100%;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
@@ -856,7 +862,7 @@ section {
 .mythology-feature {
   scroll-snap-align: start;
   position: relative;
-  height: 80dvh;
+  height: 80vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -885,6 +891,82 @@ section {
 .mythology-feature .content p {
   font-size: 1.1rem;
   line-height: 1.5;
+}
+
+/* =====================
+   CONSERVATION SECTION
+===================== */
+.conservation-section {
+  text-align: center;
+}
+.conservation-section .conservation-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.conservation-section .conservation-card {
+  background: #222222;
+  border-radius: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  color: #e4f1f5;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), inset 4px 4px 12px rgba(255, 255, 255, 0.04), inset -4px -4px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: 15px;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.conservation-section .conservation-card:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 4px 4px 12px rgba(255, 255, 255, 0.04), inset -4px -4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) scale(1.03);
+}
+.conservation-section .conservation-card:active {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 6px 6px 14px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.05);
+  transform: scale(0.95);
+}
+.conservation-section .conservation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 6px 6px 14px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.05);
+}
+.conservation-section .conservation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+}
+.conservation-section .conservation-card .conservation-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.conservation-section .conservation-card .conservation-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  /* .highlight {
+  	font-weight: 700;
+  	color: $accent-color;
+  } */
+}
+.conservation-section .conservation-card:nth-child(1)::before {
+  background: #3b82f6;
+}
+.conservation-section .conservation-card:nth-child(2)::before {
+  background: #f97316;
+}
+.conservation-section .conservation-card:nth-child(3)::before {
+  background: #22c55e;
+}
+.conservation-section .conservation-card:nth-child(4)::before {
+  background: #a855f7;
+}
+.conservation-section .conservation-card:nth-child(5)::before {
+  background: #eab308;
+}
+.conservation-section .conservation-card:nth-child(6)::before {
+  background: #ec4899;
 }
 
 /* =====================
@@ -967,91 +1049,6 @@ section {
   .gallery-item:nth-child(6) {
     display: none;
   }
-}
-
-/* =====================
-   FACTS SECTION
-===================== */
-.facts-section {
-  width: 100%;
-}
-
-.facts-container {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.fact-item {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  overflow: hidden;
-}
-@media screen and (min-width: 700px) {
-  .fact-item {
-    flex-direction: row;
-    gap: 30px;
-  }
-  .fact-item * {
-    max-width: 400px;
-  }
-  .fact-item:nth-child(2) {
-    flex-direction: row-reverse;
-  }
-}
-
-.fact-image {
-  width: 100%;
-  aspect-ratio: 5/3;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  background: #222222;
-  border-radius: 15px;
-  border: 2px solid rgba(0, 0, 0, 0.05);
-  color: #e4f1f5;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), inset 4px 4px 12px rgba(255, 255, 255, 0.04), inset -4px -4px 8px rgba(0, 0, 0, 0.15);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-.fact-image:hover {
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 4px 4px 12px rgba(255, 255, 255, 0.04), inset -4px -4px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px) scale(1.03);
-}
-.fact-image:active {
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), inset 6px 6px 14px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.05);
-  transform: scale(0.95);
-}
-@media screen and (min-width: 700px) {
-  .fact-image {
-    width: 300px;
-  }
-}
-
-.fact-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  color: #2d2c2d;
-}
-
-.fact-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.fact-description {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #e4f1f5;
 }
 
 /*# sourceMappingURL=style.css.map */
