@@ -87,21 +87,16 @@
 
 .insights-container {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	gap: 0.5rem;
 	width: 100%;
-
-	@media screen and (min-width: 700px) {
-		grid-template-columns: repeat(4, 1fr);
-		gap: 2rem;
-	}
 }
 
 .insight-card {
 	@include clay-effect();
 	aspect-ratio: 1;
 	border-radius: $border-radius-general;
-	padding: 1.5rem;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -112,6 +107,10 @@
 		box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3),
 			inset 6px 6px 14px rgba(0, 0, 0, 0.2),
 			inset -4px -4px 10px rgba(255, 255, 255, 0.05);
+	}
+
+	@media screen and (min-width: 700px) {
+		padding: 1.5rem;
 	}
 }
 
