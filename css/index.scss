@@ -69,13 +69,6 @@
 	@media screen and (min-width: 700px) {
 		justify-content: flex-start;
 	}
-
-	.btn {
-		padding: 0.8rem 1.5rem;
-		text-decoration: none;
-		font-weight: 600;
-		font-size: 1rem;
-	}
 }
 
 /* =====================
@@ -245,6 +238,7 @@
 	// Background Images
 	.norse {
 		background-image: url("../assets/cultures/norse.jpg");
+		background-position: right;
 	}
 	.native {
 		background-image: url("../assets/cultures/native-american.jpg");

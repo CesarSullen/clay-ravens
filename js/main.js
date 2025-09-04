@@ -1,32 +1,32 @@
 // Nav Bar Toggle
-let toggleBtn = document.getElementById("toggle-btn");
-let body = document.getElementById("body");
-let links = document.querySelectorAll(".side-bar-link");
-let nav = document.querySelector(".nav");
+const toggleBtn = document.getElementById("toggle-btn");
+const bottomPanel = document.getElementById("bottom-panel");
+const body = document.body;
 
-toggleBtn.addEventListener("click", toggleMenu);
-
-function toggleMenu() {
+toggleBtn.addEventListener("click", () => {
 	toggleBtn.classList.toggle("toggled");
 
-	if (nav.style.maxHeight === "90dvh") {
-		nav.style.maxHeight = "";
-		nav.style.padding = "";
-		body.style.overflowY = "auto";
+	if (
+		bottomPanel.style.transform === "translateY(100%)" ||
+		bottomPanel.style.transform === ""
+	) {
+		bottomPanel.style.transform = "translateY(0%)";
 	} else {
-		nav.style.maxHeight = "90dvh";
-		nav.style.padding = "2rem";
-		body.style.overflowY = "hidden";
+		bottomPanel.style.transform = "translateY(100%)";
 	}
-}
 
-links.forEach((link) =>
+	body.style.overflowY = toggleBtn.classList.contains("toggled")
+		? "hidden"
+		: "auto";
+});
+
+document.querySelectorAll(".panel-link").forEach((link) => {
 	link.addEventListener("click", () => {
-		nav.style.maxHeight = "";
-		body.style.overflowY = "auto";
 		toggleBtn.classList.remove("toggled");
-	})
-);
+		body.style.overflowY = "auto";
+		bottomPanel.style.transform = "translateY(100%)";
+	});
+});
 
 // Interception Observer
 const animatedElements = document.querySelectorAll(

@@ -1,100 +1,66 @@
-// Navigation
 .nav {
 	position: fixed;
-	z-index: 1000;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
 	padding: 0.6rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	font-weight: bold;
-	border-radius: $border-radius-rounded;
-	width: 90%;
-	top: 10px;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	overflow: hidden;
-	height: 100%;
 	max-height: 60px;
-
+	z-index: 1000;
+	overflow: hidden;
 	@include clay-effect();
+	border-radius: 0;
 
 	@media screen and (min-width: 700px) {
 		flex-direction: row;
 		max-height: 70px;
-
-		.nav-bar-social {
-			display: none;
-		}
-	}
-}
-
-.nav-icon-wrapper {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	text-wrap: nowrap;
-
-	.nav-icon {
-		width: 100%;
-		max-width: 40px;
-
-		@media screen and (min-width: 700px) {
-			max-width: 50px;
-		}
 	}
 
-	.nav-title {
-		font-size: 1.8rem;
-		font-family: "Merriweather";
+	.nav-icon-btn {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
-}
 
-.nav-icon-btn {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.nav-links {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-direction: column;
-	gap: 2rem;
-	font-size: 1.5rem;
-	margin-top: 1rem;
-
-	@media screen and (min-width: 700px) {
-		margin-top: 0;
-		flex-direction: row;
-		letter-spacing: 2px;
-		text-transform: uppercase;
-		font-size: 0.9rem;
-	}
-}
-
-.nav-link {
-	@media screen and (min-width: 700px) {
-		padding: 0.5rem 1rem;
+	.nav-icon-wrapper {
 		display: flex;
 		gap: 10px;
-		border-radius: 100vh;
-	}
-}
+		align-items: center;
+		text-wrap: nowrap;
 
-.nav-bar-social {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	gap: 2rem;
-}
-.nav-social-links {
-	display: flex;
-	justify-content: space-around;
-}
-.social-link {
-	width: 50px;
+		.nav-icon {
+			width: 100%;
+			max-width: 40px;
+
+			@media screen and (min-width: 700px) {
+				max-width: 50px;
+			}
+		}
+
+		.nav-title {
+			font-size: 1.8rem;
+			font-family: "Merriweather";
+		}
+	}
+
+	.nav-links {
+		display: none;
+
+		@media screen and (min-width: 700px) {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 2rem;
+			font-size: 0.9rem;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+		}
+	}
 }
 
 .toggle-btn {
@@ -106,18 +72,18 @@
 	width: 35px;
 	height: 30px;
 	padding: 5px;
-	border-radius: 5px;
 
 	@media screen and (min-width: 700px) {
 		display: none;
 	}
+
 	.bar {
 		height: 3px;
 		width: 100%;
 		background-color: $accent-color;
 		border-radius: 2px;
-		transition: transform 0.4s ease, opacity 0.2s ease;
 	}
+
 	&.toggled {
 		.bar:first-child {
 			transform: rotate(45deg) translate(5px, 5px);
@@ -128,5 +94,35 @@
 		.bar:nth-child(2) {
 			opacity: 0;
 		}
+	}
+}
+
+.bottom-panel {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 60vh;
+	transform: translateY(100%);
+	z-index: 1000;
+
+	@include flex-center;
+	@include clay-effect;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+
+	@media screen and (min-width: 700px) {
+		display: none;
+	}
+}
+
+.bottom-panel-links {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+
+	.panel-link {
+		font-size: 1.5rem;
 	}
 }
