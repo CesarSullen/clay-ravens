@@ -830,12 +830,17 @@ section {
 }
 
 .mythology-container {
-  height: 80vh;
   width: 100%;
+  aspect-ratio: 3/4;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
+}
+@media screen and (min-width: 700px) {
+  .mythology-container {
+    aspect-ratio: 2;
+  }
 }
 
 .mythology-feature {
